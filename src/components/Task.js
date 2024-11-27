@@ -6,12 +6,8 @@ import React from "react";
  * @returns {React.Component} A <li> containing the task description and a checkbox to toggle completion
  */
 export default function Task({ task, onToggleTask, onDeleteTask }) {
-  const taskStyle = {
-    textDecoration: task.completed ? "line-through" : "none",
-  };
-
   return (
-    <li style={taskStyle}>
+    <li style={{ textDecoration: task.completed ? "line-through" : "none" }}>
       <div>
         <input
           type="checkbox"
@@ -24,6 +20,7 @@ export default function Task({ task, onToggleTask, onDeleteTask }) {
     </li>
   );
 }
+
 
 
 
