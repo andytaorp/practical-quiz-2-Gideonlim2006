@@ -1,25 +1,22 @@
 import React, { useState } from "react";
 import Form from "./Form";
 import TaskList from "./TaskList";
-
-
 function App() {
-  const [tasks, setTasks] = useState([]);
 
+  const [tasks, setTasks] = useState([]);
   const handleAddTask = (newTask) => {
     // TODO: write code to add a new task
-    if (newTask.description.trim() === "") return; // Prevent empty tasks
-    setTasks((prevTasks) => [...prevTasks, newTask]);
+    setTasks((prevTasks) => [newTask, ...prevTasks]);
   };
-  
+
   const handleToggleTask = (id) => {
     // TODO: write code to toggle a task's status
     setTasks((prevTasks) =>
-    prevTasks.map((task) =>
-      task.id === id ? { ...task, completed: !task.completed } : task
-    )
-  );
-};
+      prevTasks.map((task) =>
+        task.id === id ? { ...task, complete: !task.complete } : task
+      )
+    );
+  };
 
   const handleDeleteTask = (id) => {
     // TODO: write code to delete a task
@@ -31,10 +28,14 @@ function App() {
       <h1>Task Tracker</h1>
       {/*TODO: add a form to add a new task*/}
       <Form onAddTask={handleAddTask} />
+
       {/*TODO: add a list of tasks*/}
-      <TaskList tasks={tasks} onToggleTask={handleToggleTask} onDeleteTask={handleDeleteTask} />
+      <TaskList
+        tasks={tasks}
+        onToggleTask={handleToggleTask}
+        onDeleteTask={handleDeleteTask}
+      />
     </div>
   );
 }
-
 export default App;
