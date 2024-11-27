@@ -18,7 +18,7 @@ export default function Form({ onAddTask }) {
     /*TODO: add a form to add a new task*/
     <form onSubmit={handleSubmit}>
        <input type="text" placeholder="Add Task" value={description} onChange={(e) => setDescription(e.target.value)} />
-       <button>Submit</button>
+       <button>Add Task</button>
     </form>
   );
 };
