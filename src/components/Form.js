@@ -5,14 +5,20 @@ export default function Form({ onAddTask }) {
 
   const handleSubmit = (e) => {
     // TODO: write code to handle form submission
-    e.preventDefault()
-    const newTask = { id: Date.now(), description: description, completed: false }
-    if (description !== "") {
-      onAddTask(newTask)
+    e.preventDefault();
+    if (description.trim() === "") {
+      return; // Prevent adding empty tasks
     }
-
+  
+    const newTask = {
+      id: Date.now(),
+      description: description.trim(),
+      completed: false,
+    };
+    onAddTask(newTask);
     setDescription("");
-  }
+  };
+  
 
   return (
     /*TODO: add a form to add a new task*/
