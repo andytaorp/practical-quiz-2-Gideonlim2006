@@ -5,23 +5,19 @@ import React from "react";
  * @function Task
  * @returns {React.Component} A <li> containing the task description and a checkbox to toggle completion
  */
-export default function Task(props) {
-    if (props.packed === false) {
-        return (
-            <li>
-                <div onClick={props.handleToggleTask}>
-                    <input type="checkbox"/>
-                    {props.description} 
-                    <button>❌</button>
-                </div>
-            </li>
-        );
-    } else {
-        return (
-            <div style={{ textDecoration: "line-through" }} onClick={props.handleToggleTask}>
-                {props.description} 
-            </div>
-        );
-    }
-}
+export default function Task({ task, onToggleTask, onDeleteTask }) {
+    return (
+      <li style={{ textDecoration: task.completed ? "line-through" : "none" }}>
+        <div>
+          <input
+            type="checkbox"
+            checked={task.completed}
+            onChange={() => onToggleTask(task.id)} 
+          />
+          {task.description}
+          <button onClick={() => onDeleteTask(task.id)}>❌</button> 
+        </div>
+      </li>
+    );
+  }
 

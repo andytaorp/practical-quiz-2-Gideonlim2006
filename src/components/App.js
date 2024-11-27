@@ -14,15 +14,15 @@ function App() {
   const handleToggleTask = (id) => {
     // TODO: write code to toggle a task's status
     setTasks((prevTasks) =>
-    prevTasks.map((newTask) =>
-    newTask.id === id ? { ...newTask, packed: !newTask.completed } : newTask
+    prevTasks.map((task) =>
+    task.id === id ? { ...task, packed: !task.completed } : task
       )
     );
   };
 
   const handleDeleteTask = (id) => {
     // TODO: write code to delete a task
-    setTasks((prevTasks) => prevTasks.filter((tasks, i) => i !== id));
+    setTasks((prevTasks) => prevTasks.filter((task, i) => i !== id));
   };
 
   return (
@@ -31,7 +31,6 @@ function App() {
       {/*TODO: add a form to add a new task*/}
       <Form onAddTask={handleAddTask} />
       {/*TODO: add a list of tasks*/}
-      <Task tasks={tasks} onToggleTask={handleToggleTask} onDeleteTask={handleDeleteTask}/>
       <TaskList tasks={tasks} onToggleTask={handleToggleTask} onDeleteTask={handleDeleteTask} />
     </div>
   );

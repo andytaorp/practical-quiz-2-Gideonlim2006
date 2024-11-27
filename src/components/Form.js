@@ -6,7 +6,7 @@ export default function Form({ onAddTask }) {
   const handleSubmit = (e) => {
     // TODO: write code to handle form submission
     e.preventDefault()
-    const newTask = { id: Date.now(), description: description }
+    const newTask = { id: Date.now(), description: description, completed: false }
     if (description !== "") {
       onAddTask(newTask)
     }
