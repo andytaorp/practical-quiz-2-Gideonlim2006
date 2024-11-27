@@ -15,14 +15,14 @@ function App() {
     // TODO: write code to toggle a task's status
     setTasks((prevTasks) =>
     prevTasks.map((task) =>
-    task.id === id ? { ...task, packed: !task.completed } : task
-      )
-    );
-  };
+      task.id === id ? { ...task, completed: !task.completed } : task
+    )
+  );
+};
 
   const handleDeleteTask = (id) => {
     // TODO: write code to delete a task
-    setTasks((prevTasks) => prevTasks.filter((task, i) => i !== id));
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
   };
 
   return (
