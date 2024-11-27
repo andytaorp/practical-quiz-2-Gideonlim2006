@@ -6,10 +6,7 @@ export default function Form({ onAddTask }) {
   const handleSubmit = (e) => {
     // TODO: write code to handle form submission
     e.preventDefault();
-    if (description.trim() === "") {
-      return; // Prevent adding empty tasks
-    }
-  
+    if (description.trim() === "") return; 
     const newTask = {
       id: Date.now(),
       description: description.trim(),

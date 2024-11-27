@@ -8,9 +8,10 @@ function App() {
 
   const handleAddTask = (newTask) => {
     // TODO: write code to add a new task
+    if (newTask.description.trim() === "") return; // Prevent empty tasks
     setTasks((prevTasks) => [...prevTasks, newTask]);
   };
-
+  
   const handleToggleTask = (id) => {
     // TODO: write code to toggle a task's status
     setTasks((prevTasks) =>
